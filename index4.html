@@ -1,0 +1,956 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dirgahayu Indonesia 🇮🇩</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            min-height: 100vh;
+
+            background: #ffffff;
+
+            color: #222;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           BENDERA MERAH PUTIH ATAS
+        ========================= */
+
+        .flag-top {
+            width: 100%;
+
+            height: 14px;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            flex-direction: column;
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .flag-top .red {
+            height: 50%;
+
+            background: #e5092f;
+        }
+
+        .flag-top .white {
+            height: 50%;
+
+            background: #ffffff;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #e5092f 0%,
+                    #e5092f 50%,
+                    #ffffff 50%,
+                    #ffffff 100%
+                );
+
+            animation:
+                backgroundMove 6s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes backgroundMove {
+
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 10px;
+            }
+
+        }
+
+
+        /* =========================
+           KONTEN
+        ========================= */
+
+        .content {
+
+            width: 100%;
+
+            max-width: 700px;
+
+            padding: 40px 30px;
+
+            background:
+                rgba(255,255,255,0.94);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.15);
+
+            animation:
+                muncul 1s ease;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        @keyframes muncul {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           BENDERA BERKIBAR
+        ========================= */
+
+        .mini-flag {
+
+            width: 140px;
+
+            height: 85px;
+
+            margin:
+                0 auto 30px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 8%,
+                    95% 50%,
+                    100% 92%,
+                    0 100%
+                );
+
+            box-shadow:
+                5px 8px 15px
+                rgba(0,0,0,0.2);
+
+            transform-origin:
+                left center;
+
+            animation:
+                benderaBerkibar
+                1.8s ease-in-out infinite;
+        }
+
+
+        /* TIANG */
+
+        .mini-flag::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 5px;
+
+            height: 100%;
+
+            background: #777;
+
+            border-radius: 5px;
+
+            z-index: 5;
+        }
+
+
+        /* EFEK BAYANGAN */
+
+        .mini-flag::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.25),
+                    transparent 25%,
+                    rgba(0,0,0,0.12) 50%,
+                    transparent 75%,
+                    rgba(255,255,255,0.2)
+                );
+
+            background-size: 180% 100%;
+
+            animation:
+                gelombang
+                1.8s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+
+        /* MERAH */
+
+        .mini-red {
+
+            height: 50%;
+
+            background: #e5092f;
+
+            position: relative;
+        }
+
+
+        /* PUTIH */
+
+        .mini-white {
+
+            height: 50%;
+
+            background: #ffffff;
+
+            position: relative;
+        }
+
+
+        /* ANIMASI BENDERA */
+
+        @keyframes benderaBerkibar {
+
+            0% {
+
+                transform:
+                    perspective(500px)
+                    rotateY(0deg)
+                    skewY(0deg);
+            }
+
+            25% {
+
+                transform:
+                    perspective(500px)
+                    rotateY(-8deg)
+                    skewY(2deg);
+            }
+
+            50% {
+
+                transform:
+                    perspective(500px)
+                    rotateY(8deg)
+                    skewY(-2deg);
+            }
+
+            75% {
+
+                transform:
+                    perspective(500px)
+                    rotateY(-5deg)
+                    skewY(1deg);
+            }
+
+            100% {
+
+                transform:
+                    perspective(500px)
+                    rotateY(0deg)
+                    skewY(0deg);
+            }
+
+        }
+
+
+        /* BAYANGAN BERGERAK */
+
+        @keyframes gelombang {
+
+            0% {
+
+                background-position:
+                    0% 0;
+            }
+
+            50% {
+
+                background-position:
+                    100% 0;
+            }
+
+            100% {
+
+                background-position:
+                    0% 0;
+            }
+
+        }
+
+
+        /* =========================
+           JUDUL
+        ========================= */
+
+        h1 {
+
+            font-size:
+                clamp(
+                    40px,
+                    9vw,
+                    75px
+                );
+
+            color: #e5092f;
+
+            font-weight: 900;
+
+            margin-bottom: 10px;
+
+            letter-spacing: 1px;
+
+            animation:
+                judul 2s ease-in-out infinite;
+        }
+
+
+        @keyframes judul {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.03);
+            }
+
+        }
+
+
+        h2 {
+
+            font-size:
+                clamp(
+                    21px,
+                    5vw,
+                    32px
+                );
+
+            margin-bottom: 20px;
+
+            color: #222;
+        }
+
+
+        /* =========================
+           UCAPAN
+        ========================= */
+
+        .ucapan {
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #555;
+
+            margin-bottom: 25px;
+        }
+
+
+        .merdeka {
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            color: #e5092f;
+
+            margin:
+                20px 0;
+
+            animation:
+                pulse 1.5s ease-in-out infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.08);
+            }
+
+        }
+
+
+        /* =========================
+           TOMBOL
+        ========================= */
+
+        button {
+
+            border: none;
+
+            background:
+                #e5092f;
+
+            color: white;
+
+            padding:
+                13px 25px;
+
+            border-radius:
+                50px;
+
+            font-size:
+                15px;
+
+            font-weight:
+                bold;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.3s;
+
+            box-shadow:
+                0 6px 15px
+                rgba(229,9,47,0.25);
+        }
+
+
+        button:hover {
+
+            background:
+                #b80724;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        button:active {
+
+            transform:
+                scale(0.95);
+
+        }
+
+
+        /* =========================
+           PEMBUAT WEB
+        ========================= */
+
+        .creator {
+
+            border-top:
+                1px solid #ddd;
+
+            padding-top:
+                20px;
+
+            margin-top:
+                25px;
+
+            color:
+                #777;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.6;
+        }
+
+
+        .creator strong {
+
+            display:
+                block;
+
+            margin-top:
+                5px;
+
+            font-size:
+                18px;
+
+            color:
+                #e5092f;
+        }
+
+
+        /* =========================
+           DEKORASI
+        ========================= */
+
+        .hiasan {
+
+            position:
+                absolute;
+
+            font-size:
+                22px;
+
+            opacity:
+                0.7;
+
+            pointer-events:
+                none;
+
+            animation:
+                melayang
+                5s ease-in-out infinite;
+        }
+
+
+        .hiasan:nth-child(1) {
+
+            left:
+                8%;
+
+            top:
+                25%;
+
+            animation-delay:
+                0s;
+        }
+
+
+        .hiasan:nth-child(2) {
+
+            right:
+                8%;
+
+            top:
+                30%;
+
+            animation-delay:
+                1s;
+        }
+
+
+        .hiasan:nth-child(3) {
+
+            left:
+                15%;
+
+            bottom:
+                15%;
+
+            animation-delay:
+                2s;
+        }
+
+
+        .hiasan:nth-child(4) {
+
+            right:
+                15%;
+
+            bottom:
+                20%;
+
+            animation-delay:
+                3s;
+        }
+
+
+        @keyframes melayang {
+
+            0% {
+
+                transform:
+                    translateY(20px);
+
+                opacity:
+                    0;
+            }
+
+            50% {
+
+                transform:
+                    translateY(-20px);
+
+                opacity:
+                    0.8;
+            }
+
+            100% {
+
+                transform:
+                    translateY(20px);
+
+                opacity:
+                    0;
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media
+        (max-width: 600px) {
+
+            .hero {
+
+                padding:
+                    40px 15px;
+            }
+
+
+            .content {
+
+                padding:
+                    30px 20px;
+
+                border-radius:
+                    20px;
+            }
+
+
+            .mini-flag {
+
+                width:
+                    110px;
+
+                height:
+                    68px;
+
+                margin-bottom:
+                    25px;
+            }
+
+
+            h1 {
+
+                font-size:
+                    43px;
+            }
+
+
+            h2 {
+
+                font-size:
+                    21px;
+            }
+
+
+            .ucapan {
+
+                font-size:
+                    15px;
+
+                line-height:
+                    1.7;
+            }
+
+
+            .merdeka {
+
+                font-size:
+                    22px;
+            }
+
+
+            .hiasan {
+
+                font-size:
+                    15px;
+            }
+
+
+            button {
+
+                width:
+                    100%;
+
+                padding:
+                    14px;
+            }
+
+        }
+
+
+        /* HP KECIL */
+
+        @media
+        (max-width: 380px) {
+
+            h1 {
+
+                font-size:
+                    38px;
+            }
+
+
+            .content {
+
+                padding:
+                    25px 17px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BENDERA MERAH PUTIH ATAS
+    ========================== -->
+
+    <div class="flag-top">
+
+        <div class="red"></div>
+
+        <div class="white"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         DEKORASI
+    ========================== -->
+
+    <div class="hiasan">
+        🇮🇩
+    </div>
+
+    <div class="hiasan">
+        ✨
+    </div>
+
+    <div class="hiasan">
+        🇮🇩
+    </div>
+
+    <div class="hiasan">
+        ✨
+    </div>
+
+
+
+    <!-- =========================
+         HALAMAN UTAMA
+    ========================== -->
+
+    <main class="hero">
+
+
+        <div class="content">
+
+
+            <!-- BENDERA -->
+
+            <div class="mini-flag">
+
+                <div class="mini-red"></div>
+
+                <div class="mini-white"></div>
+
+            </div>
+
+
+
+            <!-- JUDUL -->
+
+            <h1>
+                MERDEKA!
+            </h1>
+
+
+            <h2>
+                Dirgahayu Republik Indonesia 🇮🇩
+            </h2>
+
+
+
+            <!-- UCAPAN -->
+
+            <p class="ucapan">
+
+                Selamat Hari Kemerdekaan Indonesia! 🎉
+
+                <br><br>
+
+                Mari kita isi kemerdekaan dengan
+                semangat, kebersamaan, kerja keras,
+                dan hal-hal positif.
+
+                <br><br>
+
+                Semoga Indonesia semakin maju,
+                semakin kuat, dan selalu menjadi
+                rumah yang penuh kebahagiaan
+                untuk kita semua.
+
+            </p>
+
+
+
+            <!-- MERDEKA -->
+
+            <div class="merdeka">
+
+                🇮🇩 MERDEKA! 🇮🇩
+
+            </div>
+
+
+
+            <!-- TOMBOL -->
+
+            <button
+                onclick="ucapanMerdeka()">
+
+                ❤️ Klik untuk Semangat
+
+            </button>
+
+
+
+            <!-- PEMBUAT -->
+
+            <div class="creator">
+
+                Website sederhana ini dibuat
+                dengan 
+
+                <strong>
+                    Bagas
+                </strong>
+
+                untuk Indonesia 🇮🇩
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function ucapanMerdeka() {
+
+            alert(
+                "🇮🇩 MERDEKA!\n\n" +
+                "Tetap semangat, terus berkarya,\n" +
+                "dan bangga menjadi bagian dari Indonesia! ❤️"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+</html>
+```
